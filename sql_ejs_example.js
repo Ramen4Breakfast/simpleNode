@@ -8,15 +8,15 @@ app.set('view engine', 'ejs');
 // use res.render to load up an ejs view file
 var connection = mysql.createConnection({
     host: '206.12.96.242',
-    user: 'group0',
-    password: 'untanglingGroup0',
-    database: 'testDB'
+    user: 'group7',
+    password: 'untanglingGroup7',
+    database: 'group7DB'
 });
 connection.connect();
 
 var employees;
 
-connection.query('SELECT * FROM employees', function(err, rows, fields) {
+connection.query('SELECT * FROM stuff WHERE location="victoria"', function(err, rows, fields) {
     if (err) throw err;
 
     employees = rows;
@@ -45,6 +45,6 @@ app.get('/about', function(req, res) {
     });
 });
 
-app.listen(8007, function() {
-    console.log('Example app listening on port 8001!')
+app.listen(8000, function() {
+    console.log('Example app listening on port 8000!')
 })
